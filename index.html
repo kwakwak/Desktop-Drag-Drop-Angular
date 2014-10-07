@@ -12,19 +12,19 @@
 
     <div class="col-md-3">
         <ul>
-            <li><span draggable="true" class="glyphicon glyphicon-search"></span></li>
-            <li><span draggable="true" class="glyphicon glyphicon-asterisk"></span></li>
-            <li><span draggable="true" class="glyphicon glyphicon-plus"></span></li>
-            <li><span draggable="true" class="glyphicon glyphicon-euro"></span></li>
+            <li><span id="search" draggable="true" ondragstart="drag(event)" class="glyphicon glyphicon-search"></span></li>
+            <li><span id="asterisk"draggable="true" ondragstart="drag(event)" class="glyphicon glyphicon-asterisk"></span></li>
+            <li><span id="plus" draggable="true" ondragstart="drag(event)" class="glyphicon glyphicon-plus"></span></li>
+            <li><span id="euro" draggable="true" ondragstart="drag(event)" class="glyphicon glyphicon-euro"></span></li>
         </ul>
     </div>
 
     <div class="col-md-3">
         <ul>
-            <li><div class="dropLabel">asterisk</div></li>
-            <li><div class="dropLabel">search</div></li>
-            <li><div class="dropLabel">euro</div></li>
-            <li><div class="dropLabel">plus</div></li>
+            <li><div class="dropLabel">asterisk</div><div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div class="dropLabel">search</div><div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div class="dropLabel">euro</div><div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div class="dropLabel">plus</div><div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
         </ul>
     </div>
 </div>
