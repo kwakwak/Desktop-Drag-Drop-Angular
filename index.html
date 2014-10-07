@@ -12,19 +12,19 @@
 
     <div class="col-md-3">
         <ul>
-            <li><span id="search" draggable="true" ondragstart="drag(event)" class="glyphicon glyphicon-search"></span></li>
-            <li><span id="asterisk"draggable="true" ondragstart="drag(event)" class="glyphicon glyphicon-asterisk"></span></li>
-            <li><span id="plus" draggable="true" ondragstart="drag(event)" class="glyphicon glyphicon-plus"></span></li>
-            <li><span id="euro" draggable="true" ondragstart="drag(event)" class="glyphicon glyphicon-euro"></span></li>
+            <li><span id="search" draggable="true" draggable-thing class="glyphicon glyphicon-search"></span></li>
+            <li><span id="asterisk"draggable="true" draggable-thing class="glyphicon glyphicon-asterisk"></span></li>
+            <li><span id="plus" draggable="true" draggable-thing class="glyphicon glyphicon-plus"></span></li>
+            <li><span id="euro" draggable="true" draggable-thing class="glyphicon glyphicon-euro"></span></li>
         </ul>
     </div>
 
     <div class="col-md-3">
         <ul>
-            <li><div class="dropLabel">asterisk</div><div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
-            <li><div class="dropLabel">search</div><div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
-            <li><div class="dropLabel">euro</div><div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
-            <li><div class="dropLabel">plus</div><div class="dropBox" ondrop="drop(event)" ondragover="allowDrop(event)"></div></li>
+            <li><div class="dropLabel">asterisk</div><div id="asterisk" class="dropBox" droppable-area ng-class="{correct:correct,incorrect:!correct&&dropped}"></div></li>
+            <li><div class="dropLabel">search</div><div id="search" class="dropBox" droppable-area></div></li>
+            <li><div class="dropLabel">euro</div><div id="euro" class="dropBox" droppable-area></div></li>
+            <li><div class="dropLabel">plus</div><div id="plus" class="dropBox" droppable-area "></div></li>
         </ul>
     </div>
 </div>
