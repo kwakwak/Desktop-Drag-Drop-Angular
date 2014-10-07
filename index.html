@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="dragAndDrop">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dragAndDrop.css">
+</head>
+<body >
+
+<div class="dragAndDrop" ng-controller="MainController as main">
+
+    <div class="col-md-3">
+        <ul>
+            <li><span draggable="true" class="glyphicon glyphicon-search"></span></li>
+            <li><span draggable="true" class="glyphicon glyphicon-asterisk"></span></li>
+            <li><span draggable="true" class="glyphicon glyphicon-plus"></span></li>
+            <li><span draggable="true" class="glyphicon glyphicon-euro"></span></li>
+        </ul>
+    </div>
+
+    <div class="col-md-3">
+        <ul>
+            <li><div class="dropLabel">asterisk</div></li>
+            <li><div class="dropLabel">search</div></li>
+            <li><div class="dropLabel">euro</div></li>
+            <li><div class="dropLabel">plus</div></li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
