@@ -17,9 +17,12 @@
              ng-click="main.remove($index)"
              >
     </div>
+    <h3 ng-show="main.status.loading">Loading..</h3>
 </div>
 
+<script type="text/javascript" src="bower_components/localforage/dist/localforage.min.js"></script>
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/angular-localforage/dist/angular-localForage.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

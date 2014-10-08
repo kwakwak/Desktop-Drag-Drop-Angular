@@ -1,16 +1,30 @@
 (function () {
-    function MainController(){
+    function MainController(scope,localForage){
         var vm=this;
-        vm.gallery =[];
+        vm.status={
+                loading:true
+            };
+
+        localForage.getItem('gallery').then(function(data) {
+            if (data){
+                vm.gallery =data;
+            } else {
+                vm.gallery =[];
+            }
+            vm.status.loading=false;
+        });
+
         vm.remove = function(index){
             vm.gallery.splice(index, 1);
+            localForage.setItem('gallery',vm.gallery);
         }
 
-    }
-    angular.module('dragAndDrop',[])
-        .controller({
-            MainController:MainController
+        scope.$on('imageAdd',function(){
+            localForage.setItem('gallery',vm.gallery);
         })
+    }
+    angular.module('dragAndDrop',['LocalForageModule'])
+        .controller('MainController', ['$scope','$localForage', MainController])
         .directive('droppableArea', function() {
             return {
                 restrict: 'A', //attribute only
@@ -23,6 +37,7 @@
                             var reader = new FileReader();
                             reader.onload = function(e) {
                                 scope.gallery.push(e.target.result);
+                                scope.$emit('imageAdd');
                                 scope.$apply();
                             }
                             reader.readAsDataURL(img);
