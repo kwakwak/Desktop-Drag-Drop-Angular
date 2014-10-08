@@ -1,17 +1,12 @@
-.dragAndDrop ul {
-  margin-top: 20px;
-  list-style-type: none;
+#imgDrop{
+    width: 300px;
+    height: 100px;
+    border: 1px solid;
 }
-.dragAndDrop ul li {
-  margin-top: 15px;
-}
-.dragAndDrop .glyphicon {
-  font-size: 70px;
-}
-.dragAndDrop .dropLabel {
-  height: 60px;
-  border: 1px solid;
-  font-size: 40px;
-  text-align: center;
-  margin-top: 30px;
+
+.thumbnail{
+    width: 100px;
+    height: 100px;
+    display: inline;
+    margin: 5px;
 }

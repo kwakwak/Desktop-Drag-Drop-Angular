@@ -11,22 +11,10 @@
 <div class="dragAndDrop" ng-controller="MainController as main">
 
     <div class="col-md-3">
-        <ul>
-            <li><span id="search" draggable="true" draggable-thing class="glyphicon glyphicon-search"></span></li>
-            <li><span id="asterisk"draggable="true" draggable-thing class="glyphicon glyphicon-asterisk"></span></li>
-            <li><span id="plus" draggable="true" draggable-thing class="glyphicon glyphicon-plus"></span></li>
-            <li><span id="euro" draggable="true" draggable-thing class="glyphicon glyphicon-euro"></span></li>
-        </ul>
+        <div id="imgDrop" droppable-area gallery="main.gallery"></div>
+        <div id="gallery"><img class="thumbnail"  ng-repeat="img in main.gallery"  ng-src="{{img}}"></div>
     </div>
 
-    <div class="col-md-3">
-        <ul>
-            <li><div class="dropLabel">asterisk</div><div id="asterisk" class="dropBox" droppable-area ng-class="{correct:correct,incorrect:!correct&&dropped}"></div></li>
-            <li><div class="dropLabel">search</div><div id="search" class="dropBox" droppable-area ng-class="{correct:correct,incorrect:!correct&&dropped}"></div></li>
-            <li><div class="dropLabel">euro</div><div id="euro" class="dropBox" droppable-area ng-class="{correct:correct,incorrect:!correct&&dropped}"></div></li>
-            <li><div class="dropLabel">plus</div><div id="plus" class="dropBox" droppable-area ng-class="{correct:correct,incorrect:!correct&&dropped}"></div></li>
-        </ul>
-    </div>
 </div>
 
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>

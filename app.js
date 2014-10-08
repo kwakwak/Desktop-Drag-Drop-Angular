@@ -1,7 +1,7 @@
 (function () {
     function MainController(){
         var vm=this;
-        vm.hello ='roni';
+        vm.gallery =[];
     }
     angular.module('dragAndDrop',[])
         .controller({
@@ -10,37 +10,38 @@
         .directive('droppableArea', function() {
             return {
                 restrict: 'A', //attribute only
-                scope: true,
+                scope: {
+                    gallery:'='
+                },
                 link: function(scope, elem, attr, ctrl) {
-                    scope.dropped=false;
-                    elem.bind('drop', function(ev) {
-                        ev.preventDefault();
-                        var data = ev.dataTransfer.getData("text/html");
-                        ev.target.appendChild(document.getElementById(data));
-                        if (data === elem[0].id){
-                            scope.correct=true;
-                            scope.dropped=true;
-                            scope.$digest();
-                        } else {
-                            scope.correct=false;
-                            scope.dropped=true;
-                            scope.$digest();
+                    function parse(img){
+                        if (img.type.indexOf("image") == 0) {
+                            var reader = new FileReader();
+                            reader.onload = function(e) {
+                                scope.gallery.push(e.target.result);
+                                scope.$apply();
+                            }
+                            reader.readAsDataURL(img);
                         }
+                    }
+                    elem.bind('drop', function(ev) {
+                        ev.stopPropagation();
+                        ev.preventDefault()
 
+                        var files = ev.target.files || ev.dataTransfer.files;
+                        for (var i = 0, f; f = files[i]; i++) {
+                            parse(f);
+                        }
                     });
                     elem.bind('dragover', function(ev) {
-                        ev.preventDefault();
+                        ev.stopPropagation();
+                        ev.preventDefault();;
                     });
-                }
-            };
-        })
-        .directive('draggableThing', function(){
-            return {
-                restrict: 'A', //attribute only
-                link: function(scope, elem, attr, ctrl) {
-                    elem.bind('dragstart', function(ev) {
-                        ev.dataTransfer.setData("text/html", ev.target.id);
+                    elem.bind('dragleave', function(ev) {
+                        ev.stopPropagation();
+                        ev.preventDefault();;
                     });
+
                 }
             };
         });
