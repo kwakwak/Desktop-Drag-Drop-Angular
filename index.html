@@ -6,15 +6,17 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="dragAndDrop.css">
 </head>
-<body >
+<body ng-controller="MainController as main">
 
-<div class="dragAndDrop" ng-controller="MainController as main">
-
-    <div class="col-md-3">
-        <div id="imgDrop" droppable-area gallery="main.gallery"></div>
-        <div id="gallery"><img class="thumbnail"  ng-repeat="img in main.gallery"  ng-src="{{img}}"></div>
+<div class="col-md-6 col-md-offset-3">
+    <div class="jumbotron">
+        <div id="imgDrop" droppable-area gallery="main.gallery" class="text-center">Drop image here</div>
+        <img class="thumbnail"
+             ng-src="{{img}}"
+             ng-repeat="img in main.gallery track by $index"
+             ng-click="main.remove($index)"
+             >
     </div>
-
 </div>
 
 <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>

@@ -2,6 +2,10 @@
     function MainController(){
         var vm=this;
         vm.gallery =[];
+        vm.remove = function(index){
+            vm.gallery.splice(index, 1);
+        }
+
     }
     angular.module('dragAndDrop',[])
         .controller({
