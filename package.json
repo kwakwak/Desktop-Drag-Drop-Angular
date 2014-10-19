@@ -1,6 +1,6 @@
 {
   "name": "drag-and-drop",
-  "version": "0.1",
+  "version": "0.0.1",
   "main": "app.js",
   "engines": {
     "node": ">= 0.8.0"
