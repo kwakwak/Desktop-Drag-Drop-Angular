@@ -16,7 +16,7 @@ module.exports = function (grunt) {
         options: {
           jshintrc: '.jshintrc'
         },
-        src: 'src/perfect-scrollbar.js'
+        src: 'app.js'
       }
     }
   });
